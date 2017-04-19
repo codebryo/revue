@@ -7,11 +7,18 @@
   "author": "Roman Kuba <roman.kuba@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack src/index.js dist/index.js"
+    "test": "jest",
+    "build": "webpack"
   },
+  "jest": {},
   "devDependencies": {
+    "babel-loader": "^6.4.1",
     "jest": "^19.0.2",
     "jest-babel": "^1.0.1",
+    "vue": "^2.2.6",
     "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1"
   }
 }
