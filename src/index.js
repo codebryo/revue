@@ -1,4 +1,5 @@
 import beautify from './beautify'
+import Vue from 'vue'
 
 class Revue {
 
