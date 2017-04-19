@@ -1,0 +1,13 @@
+{
+  "name": "revue",
+  "version": "0.0.1",
+  "description": "Test your Vue components with ease and use the testrunner of your choice.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/codebryo/revue.git",
+  "author": "Roman Kuba <roman.kuba@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^19.0.2",
+    "jest-babel": "^1.0.1"
+  }
+}
