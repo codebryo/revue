@@ -9,7 +9,23 @@ Approachable testing for Vue Components.
 
 ## Installation
 
-TBU
+Install through `npm` or `yarn`:
+
+```shell
+# with npm
+$ npm install revue-testing
+
+# with yarn
+$ yarn add revue-testing
+```
+
+then you can require it in your file:
+
+```js
+const Revue = require('revue-testing')
+```
+
+and up we go...
 
 ## Getting Started
 
