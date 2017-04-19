@@ -2,7 +2,7 @@ export default {
   template: `
     <div>
       <h1>Welcome {{ nameProcessed }}</h1>
-      <p class="desription">{{ desc }}</p>
+      <p class="description">{{ desc }}</p>
       <button @click="toggle">Transform Name</button>
     </div>
   `,
@@ -19,7 +19,7 @@ export default {
   computed: {
     nameProcessed() {
       if (this.allcaps) return this.name.toUpperCase();
-      return name;
+      return this.name;
     },
   },
 

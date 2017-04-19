@@ -22,10 +22,14 @@ class Revue {
     }).$mount(document.createElement('div'));
   }
 
-  _nextTick() {
-    return new Promise((resolve, reject) => {
-      Vue.nextTick(() => resolve())
-    })
+  /**
+   * $tick
+   * -- execute Vue.nextTick and pass in the callback
+   * @param {Function} cb
+   * @return {Promise}
+   */
+  $tick(cb) {
+    Vue.nextTick(cb)
   }
 
   /**
@@ -34,17 +38,7 @@ class Revue {
    * @return {String}
    */
   get $html () {
-    return new Promise((resolve, reject) => {
-      this._nextTick()
-        .then(() => {
-          return beautify(this._mounted.$el.outerHTML)
-        })
-        .catch((err) => {
-          (reject(err))
-        })
-    })
-
-    return beautify(this._mounted.$el.outerHTML)
+    return beautify(this._mounted.$el.outerHTML).trim()
   }
 }
 

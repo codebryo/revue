@@ -8981,14 +8981,18 @@ var Revue = function () {
         propsData: data
       }).$mount(document.createElement('div'));
     }
+
+    /**
+     * $tick
+     * -- execute Vue.nextTick and pass in the callback
+     * @param {Function} cb
+     * @return {Promise}
+     */
+
   }, {
-    key: '_nextTick',
-    value: function _nextTick() {
-      return new Promise(function (resolve, reject) {
-        _vue2.default.nextTick(function () {
-          return resolve();
-        });
-      });
+    key: '$tick',
+    value: function $tick(cb) {
+      _vue2.default.nextTick(cb);
     }
 
     /**
@@ -9000,17 +9004,7 @@ var Revue = function () {
   }, {
     key: '$html',
     get: function get() {
-      var _this = this;
-
-      return new Promise(function (resolve, reject) {
-        _this._nextTick().then(function () {
-          return (0, _beautify2.default)(_this._mounted.$el.outerHTML);
-        }).catch(function (err) {
-          reject(err);
-        });
-      });
-
-      return (0, _beautify2.default)(this._mounted.$el.outerHTML);
+      return (0, _beautify2.default)(this._mounted.$el.outerHTML).trim();
     }
   }]);
 
