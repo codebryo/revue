@@ -11,12 +11,15 @@ Approachable testing for Vue Components.
 
 TBU
 
-## The API
+## Getting Started
 
 To get running with `Revue` you first need to instantiate it accordingly.
 
 ```js
 const Component = {
+
+  props: ['secret'],
+
   data() {
     return {
       msg: 'Hello Revue!'
@@ -28,12 +31,21 @@ const Component = {
 let rv = new Revue(Component)
 ```
 
+You can also pass in data that will be applied to the component using Vue's `propsData` option. If the component has props set it's easy as this:
+
+```js
+let rv = new Revue(Component, { secret: 'Revue is awesome' })
+```
+
+## The API
+
 **The $ instance**
 
 `$` let's you interact with the instance itself and get or set data as known.
 
 ```js
 console.log(rv.$.msg) // 'Hello Revue!'
+console.log(rv.$.secret) // 'Revue is awesome'
 
 rv.$.msg = 'Interaction happening'
 
