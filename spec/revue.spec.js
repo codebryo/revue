@@ -1,11 +1,9 @@
-import Component from './component';
 const Vue = require('vue');
+const Vuex = require('vuex')
 const Revue = require('../dist/index');
 
-let mocks = {
-  value: 'Something Different',
-  name: 'Grace Hopper'
-}
+import mocks from './mocks';
+import Component from './component';
 
 
 describe('Revue', () => {
