@@ -4,7 +4,10 @@ exports[`Revue $html allows to get the rendered html of the instance 1`] = `
 "<div>
   <h1>Welcome Grace Hopper</h1> 
   <p class=\\"description\\">Default description!</p> 
-  <button>Transform Name</button>
+  <button>Transform Name</button> 
+  <h2>Share some Love</h2> 
+  <span class=\\"love\\"></span> 
+  <button>Increase</button>
 </div>"
 `;
 
@@ -12,6 +15,9 @@ exports[`Revue $html changed data is reflected in the snapshot 1`] = `
 "<div>
   <h1>Welcome Grace Hopper</h1> 
   <p class=\\"description\\">Something Different</p> 
-  <button>Transform Name</button>
+  <button>Transform Name</button> 
+  <h2>Share some Love</h2> 
+  <span class=\\"love\\"></span> 
+  <button>Increase</button>
 </div>"
 `;
