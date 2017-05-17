@@ -47,11 +47,32 @@ const Component = {
 let rv = new Revue(Component)
 ```
 
-You can also pass in data that will be applied to the component using Vue's `propsData` option. If the component has props set it's easy as this:
+You can also pass various things into the Vue instance. Let's start by passing in custom information leveraging Vue's `propsData` option. 
+Assuming the component uses props it's easy as this:
 
 ```js
-let rv = new Revue(Component, { secret: 'Revue is awesome' })
+let rv = new Revue(Component, { props: { secret: 'Revue is awesome' }})
 ```
+
+That's pretty convenient right? Well how about aiming high already and leverage a store? (Currently only [Vuex](https://vuex.vuejs.org/en/) is supported)
+
+```js
+const store = {
+  state: {
+    love: 1
+  },
+
+  mutations: {
+    increment(state) {
+      state.love++
+    }
+  }
+}
+
+let rv = new Revue(Component, { store })
+```
+
+Now your component can work with the store as expected. For convenience a `$store` accessor is provided for you.
 
 ## The API
 
@@ -90,8 +111,20 @@ rv.$tick(() => {
 })
 ```
 
-##WIP
+**$store**
+In case a store was injected into the component it can access through the `$tick` getter.
+
+```js
+rv.$store.state.love // 1
+
+// The same as
+
+rv.$.$store.state.love // 1
+```
+
+## WIP
 
 - Extend API to allow interactions (click buttons, etc.)
+- Allow injection of components
 - Extend Documentation
 - Example guide how to use with Jest
