@@ -27,6 +27,8 @@ export default {
     },
 
     love() {
+      if(this.$store) // only for this tested component
+        return this.$store.state.love
     }
   },
 
@@ -36,6 +38,8 @@ export default {
     },
 
     increase() {
+      if(this.$store) // only for this tested component
+        this.$store.commit('increase')
     },
   },
 };

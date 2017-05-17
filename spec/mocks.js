@@ -11,8 +11,7 @@ export default {
     },
 
     mutations: {
-
-      increase({state}) {
+      increase(state) {
         state.love++
       }
     }

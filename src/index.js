@@ -54,6 +54,15 @@ class Revue {
   get $html () {
     return beautify(this._mounted.$el.outerHTML).trim()
   }
+
+  /**
+   * store
+   * -- quick access the Vuex store
+   * @return {String}
+   */
+  get $store () {
+    return this._mounted.$store
+  }
 }
 
 module.exports = Revue

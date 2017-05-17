@@ -60,4 +60,25 @@ describe('Revue', () => {
       })
     })
   })
+
+  describe('with store', () => {
+    let rv;
+
+    beforeEach(() => {
+      rv = new Revue(Component, {
+        store: mocks.store
+      })
+    })
+
+    test('store is accassable through the instance', () => {
+      expect(rv.$store).toBeDefined()
+      expect(rv.$store.state).toEqual(mocks.store.state)
+    })
+
+    test('store allows expected interactions inside the Vue instance', () => {
+      expect(rv.$.love).toBe(1)
+      rv.$.increase()
+      expect(rv.$.love).toBe(2)
+    })
+  })
 });
