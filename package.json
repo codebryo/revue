@@ -1,6 +1,6 @@
 {
   "name": "revue-testing",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Test your Vue components with ease and use the testrunner of your choice.",
   "main": "dist/index.js",
   "repository": "https://github.com/codebryo/revue.git",
