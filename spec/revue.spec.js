@@ -1,5 +1,3 @@
-const Vue = require('vue');
-const Vuex = require('vuex')
 const Revue = require('../dist/index');
 
 import mocks from './mocks';
@@ -15,7 +13,11 @@ describe('Revue', () => {
   })
 
   test('instantiating with mockData will inject it as propsData', () => {
-    let rv = new Revue(Component, {name: mocks.name})
+    let rv = new Revue(Component, {
+      props: {
+        name: mocks.name
+      }
+    })
     expect(rv._mounted.$props.name).toBe(mocks.name)
   })
 
@@ -40,7 +42,11 @@ describe('Revue', () => {
     let rv;
 
     beforeEach(() => {
-      rv = new Revue(Component, {name: mocks.name})
+      rv = new Revue(Component, {
+        props: {
+          name: mocks.name
+        }
+      })
     })
 
     test('allows to get the rendered html of the instance', () => {

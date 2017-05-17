@@ -1,11 +1,12 @@
 import beautify from './beautify'
 import Vue from 'vue'
+import Vuex from 'vuex'
 
 class Revue {
 
-  constructor(component, data={}) {
+  constructor(component, options={}) {
     this._component = component
-    this._mounted = this._prepare(data)
+    this._mounted = this._prepare(options)
     this.$ = this._mounted
   }
 
@@ -15,10 +16,23 @@ class Revue {
    * @param {Object} data
    * @return {Promise}
    */
-  _prepare (data) {
+  _prepare (options) {
+    const defaultOptions = {
+      props: {},
+      store: null
+    }
+
+    options = Object.assign(defaultOptions, options)
+
+    if (options.store) {
+      Vue.use(Vuex)
+      this._component.store = new Vuex.Store(options.store)
+    }
+
     let C = Vue.extend(this._component)
+    
     return new C({
-      propsData: data
+      propsData: options.props
     }).$mount(document.createElement('div'));
   }
 
