@@ -9,12 +9,6 @@ module.exports = {
     libraryTarget: "umd"
   },
 
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
-  },
-
   module: {
     rules: [
       {
@@ -27,5 +21,5 @@ module.exports = {
     ]
   },
 
-  externals: ['vue', 'vuex']
+  externals: ['vue/dist/vue.common', 'vuex']
 };

@@ -1,7 +1,7 @@
-const Revue = require('../dist/index');
-
 import mocks from './mocks';
 import Component from './component';
+
+const Revue = require('../dist/index');
 
 
 describe('Revue', () => {

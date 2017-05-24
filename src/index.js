@@ -1,6 +1,6 @@
 import beautify from './beautify'
-import Vue from 'vue'
-import Vuex from 'vuex'
+const Vue = require('vue/dist/vue.common')
+const Vuex = require('vuex')
 
 class Revue {
 
@@ -30,7 +30,7 @@ class Revue {
     }
 
     let C = Vue.extend(this._component)
-    
+
     return new C({
       propsData: options.props
     }).$mount(document.createElement('div'));

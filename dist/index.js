@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("vue"), require("vuex"));
+		module.exports = factory(require("vue/dist/vue.common"), require("vuex"));
 	else if(typeof define === 'function' && define.amd)
-		define(["vue", "vuex"], factory);
+		define(["vue/dist/vue.common", "vuex"], factory);
 	else if(typeof exports === 'object')
-		exports["Revue"] = factory(require("vue"), require("vuex"));
+		exports["Revue"] = factory(require("vue/dist/vue.common"), require("vuex"));
 	else
-		root["Revue"] = factory(root["vue"], root["vuex"]);
+		root["Revue"] = factory(root["vue/dist/vue.common"], root["vuex"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -157,17 +157,12 @@ var _beautify = __webpack_require__(0);
 
 var _beautify2 = _interopRequireDefault(_beautify);
 
-var _vue = __webpack_require__(1);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _vuex = __webpack_require__(2);
-
-var _vuex2 = _interopRequireDefault(_vuex);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Vue = __webpack_require__(1);
+var Vuex = __webpack_require__(2);
 
 var Revue = function () {
   function Revue(component) {
@@ -199,11 +194,11 @@ var Revue = function () {
       options = Object.assign(defaultOptions, options);
 
       if (options.store) {
-        _vue2.default.use(_vuex2.default);
-        this._component.store = new _vuex2.default.Store(options.store);
+        Vue.use(Vuex);
+        this._component.store = new Vuex.Store(options.store);
       }
 
-      var C = _vue2.default.extend(this._component);
+      var C = Vue.extend(this._component);
 
       return new C({
         propsData: options.props
@@ -220,7 +215,7 @@ var Revue = function () {
   }, {
     key: '$tick',
     value: function $tick(cb) {
-      _vue2.default.nextTick(cb);
+      Vue.nextTick(cb);
     }
 
     /**
