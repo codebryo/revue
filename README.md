@@ -1,6 +1,8 @@
 Revue
 =====
 
+# This Project is deprecated in favor of the official [vue-test-utils](https://vue-test-utils.vuejs.org/en/)
+
 Approachable testing for Vue Components.
 
 ## What's this?
@@ -47,7 +49,7 @@ const Component = {
 let rv = new Revue(Component)
 ```
 
-You can also pass various things into the Vue instance. Let's start by passing in custom information leveraging Vue's `propsData` option. 
+You can also pass various things into the Vue instance. Let's start by passing in custom information leveraging Vue's `propsData` option.
 Assuming the component uses props it's easy as this:
 
 ```js
